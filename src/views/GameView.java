@@ -1,10 +1,13 @@
 package views;
 
+import controllers.GameController;
+import models.Player;
 import utils.ColorUtils;
 
 public class GameView {
 
     ColorUtils colorUtils = new ColorUtils();
+    GameController controller = new GameController();
 
     public GameView() {
     }
@@ -60,5 +63,13 @@ public class GameView {
         System.out.println("║                                                      ║");
         System.out.println("║                 Author: @felixmk0                    ║");
         System.out.println("╚══════════════════════════════════════════════════════╝");
+    }
+
+    public void showCurrentPlayerTurn(Player p1, Player p2) {
+        System.out.println();
+        if (p1.isTurn())
+            System.out.println(ColorUtils.ANSI_PURPLE_BACKGROUND + ColorUtils.ANSI_BLACK +"Introduce una coordenada, " + p1.getName() + " (" + p1.getFigure() + ")" + ":" + ColorUtils.ANSI_RESET);
+        else if (p2.isTurn())
+            System.out.println(ColorUtils.ANSI_PURPLE_BACKGROUND + ColorUtils.ANSI_BLACK +"Introduce una coordenada, " + p2.getName() + " (" + p2.getFigure() + ")" + ":" + ColorUtils.ANSI_RESET);
     }
 }

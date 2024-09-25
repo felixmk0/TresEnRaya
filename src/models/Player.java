@@ -4,6 +4,7 @@ public class Player {
     private String name;
     private String figure;
     private int points;
+    private boolean turn = false;
 
     public Player() {
     }
@@ -36,5 +37,13 @@ public class Player {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public boolean isTurn() {
+        return turn;
+    }
+
+    public void setTurn(boolean turn) {
+        this.turn = turn;
     }
 }

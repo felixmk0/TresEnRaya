@@ -40,7 +40,9 @@ public class Main {
 
         controller.chooseStartPlayer(player1, player2);
 
-        view.showPurpleMessage("Introduce una coordenada: ");
-        controller.insertCoordinate(scanner.nextLine(), player1);
+        for (int i = 0; player1.getPoints() >= 0 && player2.getPoints() >= 0; i++) {
+            view.showCurrentPlayerTurn(player1, player2);
+            controller.insertFigure(scanner.nextLine(), player1, player2);
+        }
     }
 }

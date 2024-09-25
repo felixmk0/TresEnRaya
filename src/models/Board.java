@@ -1,7 +1,7 @@
 package models;
 
 public class Board {
-    private String[][] Board = {
+    public String[][] Board = {
             {"?", "?", "?"},
             {"?", "?", "?"},
             {"?", "?", "?"}
