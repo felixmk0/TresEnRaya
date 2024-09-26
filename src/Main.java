@@ -5,7 +5,6 @@ import views.GameView;
 
 import java.util.Scanner;
 
-
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         GameView view = new GameView();
@@ -24,25 +23,17 @@ public class Main {
         view.welcomeMessage();
         view.showTutorial();
 
-        view.showBlueMessage("JUGADOR 1: Introduce tu nombre:");
-        player1.setName(scanner.nextLine().toUpperCase());
+        controller.gameSetup(player1);
+        controller.gameSetup(player2);
 
-        view.showBlueMessage(player1.getName() + ", introduce tu figura:");
-        player1.setFigure(scanner.nextLine().toUpperCase());
-
-        view.showBlueMessage("JUGADOR 2: Introduce tu nombre:");
-        player2.setName(scanner.nextLine().toUpperCase());
-
-        view.showBlueMessage(player2.getName() + ", introduce tu figura:");
-        player2.setFigure(scanner.nextLine().toUpperCase());
-
-        view.showStartMessage();
+        view.showPurpleMessage("Preparense que empezamos...");
+        Thread.sleep(1000);
 
         controller.chooseStartPlayer(player1, player2);
 
-        for (int i = 0; player1.getPoints() >= 0 && player2.getPoints() >= 0; i++) {
+        do {
             view.showCurrentPlayerTurn(player1, player2);
             controller.insertFigure(scanner.nextLine(), player1, player2);
-        }
+        } while (player1.getPoints() <= 0 && player2.getPoints() <= 0);
     }
 }

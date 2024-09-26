@@ -2,8 +2,10 @@ package utils;
 
 public class ColorUtils {
 
-    // COLORS
+    // COLOR RESETER
     public static final String ANSI_RESET = "\u001B[0m";
+
+    // COLORS
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -23,14 +25,4 @@ public class ColorUtils {
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
-    public ColorUtils() {
-    }
-
-    public static String colorText(String color, String text) {
-        return color + text + ANSI_RESET;
-    }
-
-    public static String colorTextWithBackground(String foregroundColor, String backgroundColor, String text) {
-        return foregroundColor + backgroundColor + text + ANSI_RESET;
-    }
 }
